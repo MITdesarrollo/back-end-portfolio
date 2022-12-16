@@ -1,0 +1,35 @@
+package com.portfolioArg.portfolio.services;
+
+import com.portfolioArg.portfolio.entitys.Experiencia;
+import com.portfolioArg.portfolio.entitys.Herramienta;
+import com.portfolioArg.portfolio.repositorys.RHerramienta;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@Transactional
+public class SHerramienta {
+    @Autowired
+    RHerramienta herrRepo;
+
+    public List<Herramienta> list(){
+        return herrRepo.findAll();
+    }
+
+    public Herramienta getErr(Long id){
+        Herramienta herr = herrRepo.findById(id).orElse(null);
+        return herr;
+    }
+    public void save(Herramienta herr){
+        herrRepo.save(herr);
+    }
+    public void edelete(Long id){
+        herrRepo.deleteById(id);
+    }
+    public void edit(Herramienta herr){
+        herrRepo.save(herr);
+    }
+}

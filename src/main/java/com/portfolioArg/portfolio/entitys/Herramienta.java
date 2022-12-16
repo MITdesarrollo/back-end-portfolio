@@ -1,0 +1,78 @@
+package com.portfolioArg.portfolio.entitys;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
+
+import java.util.Objects;
+
+@Entity
+@Transactional
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Herramienta {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name= "nombre")
+    private String nombre;
+
+    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Persona persona;
+
+    public Herramienta() {
+    }
+
+    public Herramienta( String nombre) {
+        this.nombre = nombre;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Herramienta that = (Herramienta) o;
+        return id == that.id && Objects.equals(nombre, that.nombre) && Objects.equals(persona, that.persona);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, persona);
+    }
+
+    @Override
+    public String toString() {
+        return "Herramienta{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", persona=" + persona +
+                '}';
+    }
+}
