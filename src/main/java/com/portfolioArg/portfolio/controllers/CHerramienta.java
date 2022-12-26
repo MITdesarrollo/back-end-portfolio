@@ -1,9 +1,7 @@
 package com.portfolioArg.portfolio.controllers;
 
 import com.portfolioArg.portfolio.entitys.Herramienta;
-import com.portfolioArg.portfolio.entitys.Persona;
 import com.portfolioArg.portfolio.services.SHerramienta;
-import com.portfolioArg.portfolio.services.SPersona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +22,7 @@ public class CHerramienta {
        return new ResponseEntity(list, HttpStatus.OK);}
 
     @GetMapping("/detail/{id}")
-       public ResponseEntity<Herramienta> detalle(@PathVariable("id") Long id){
+       public ResponseEntity<Herramienta> detail(@PathVariable("id") Long id){
        Herramienta herramienta = servHerra.getErr(id);
        return new ResponseEntity(herramienta, HttpStatus.OK);
   }

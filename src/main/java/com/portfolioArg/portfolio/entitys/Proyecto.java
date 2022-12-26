@@ -1,10 +1,12 @@
 package com.portfolioArg.portfolio.entitys;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 
+
+import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.Objects;
 
@@ -36,7 +38,7 @@ public class Proyecto {
 
     @Column(name = "url")
     private String url;
-    @JsonManagedReference
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     private Persona persona;
 

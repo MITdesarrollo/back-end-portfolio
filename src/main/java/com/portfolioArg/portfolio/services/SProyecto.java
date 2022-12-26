@@ -1,11 +1,11 @@
 package com.portfolioArg.portfolio.services;
 
-import com.portfolioArg.portfolio.entitys.Herramienta;
+
 import com.portfolioArg.portfolio.entitys.Proyecto;
 import com.portfolioArg.portfolio.repositorys.RProyecto;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class SProyecto {
     public void save(Proyecto pro){
         proyectoRepo.save(pro);
     }
-    public void edelete(Long id){
+    public void delete(Long id){
         proyectoRepo.deleteById(id);
     }
     public void edit(Proyecto pro){

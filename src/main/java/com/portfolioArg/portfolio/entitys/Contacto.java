@@ -1,11 +1,13 @@
 package com.portfolioArg.portfolio.entitys;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 
+
+import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.Objects;
 
 @Entity
@@ -25,7 +27,7 @@ public class Contacto {
     @Column(name = "icono")
     private String icono;
 
-    @JsonManagedReference
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     private Persona persona;
 

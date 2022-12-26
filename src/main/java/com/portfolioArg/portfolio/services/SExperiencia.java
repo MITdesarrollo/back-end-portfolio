@@ -1,11 +1,11 @@
 package com.portfolioArg.portfolio.services;
 
-import com.portfolioArg.portfolio.entitys.Educacion;
+
 import com.portfolioArg.portfolio.entitys.Experiencia;
 import com.portfolioArg.portfolio.repositorys.RExperiencia;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

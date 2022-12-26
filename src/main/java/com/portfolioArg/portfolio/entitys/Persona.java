@@ -2,10 +2,11 @@ package com.portfolioArg.portfolio.entitys;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 
 
+
+import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -47,23 +48,23 @@ public class Persona {
     private Date nacimiento;
 
     @JsonManagedReference
-    @OneToMany(mappedBy="persona", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Educacion> educaciones;
 
     @JsonManagedReference
-    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     private List<Contacto> contactos;
 
     @JsonManagedReference
-    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     private List<Experiencia> experiencias;
 
     @JsonManagedReference
-    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     private List<Herramienta> herramientas;
 
     @JsonManagedReference
-    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @OneToMany (mappedBy="persona", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     private List<Proyecto> proyectos;
 
 

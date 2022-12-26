@@ -2,9 +2,9 @@ package com.portfolioArg.portfolio.services;
 
 import com.portfolioArg.portfolio.entitys.Educacion;
 import com.portfolioArg.portfolio.repositorys.REducacion;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class SEducacion {
     public void save(Educacion edu){
         eduRepo.save(edu);
     }
-    public void edelete(Long id){
+    public void delete(Long id){
         eduRepo.deleteById(id);
     }
     public void edit(Educacion edu){
